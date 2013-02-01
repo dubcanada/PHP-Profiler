@@ -78,37 +78,20 @@ class Profiler_Console {
 	 * @param string $sql
 	 * @return void
 	 */
-	public static function logQuery($sql, $explain = null) {
+	public static function logQuery($sql, $explain = null, $start, $end) {
 		// We use a hash of the query for two reasons. One is because for large queries the
 		// hash will be considerably smaller in memory. The second is to make a dump of the
 		// logs more easily readable.
 		$hash = md5($sql);
 
-		// If this query is in the log we need to see if an end time has been set. If no
-		// end time has been set then we assume this call is closing a previous one.
-		if (isset(self::$_logs['queries']['messages'][$hash])) {
-			$query = array_pop(self::$_logs['queries']['messages'][$hash]);
-			if (!$query['end_time']) {
-				$query['end_time'] = microtime(true);
-				$query['explain'] = $explain;
-
-				self::$_logs['queries']['messages'][$hash][] = $query;
-			} else {
-				self::$_logs['queries']['messages'][$hash][] = $query;
-			}
-
-			self::$_logs['queries']['count'] += 1;
-			return;
-		}
-
-		$log_item = array('start_time' => microtime(true),
-			'end_time' => false,
+		$log_item = array('start_time' => $start,
+			'end_time' => $end,
 			'explain' => false,
 			'sql' => $sql);
 
 		self::$_logs['queries']['messages'][$hash][] = $log_item;
 	}
-	
+
 	/**
 	 * Records the time it takes for an action to occur
 	 *

@@ -161,7 +161,7 @@ class Profiler_Display {
 				if (isset($query['explain']) && $query['explain']) {
 					$explain = $query['explain'];
 					echo '<em>';
-					
+
 					if (isset($explain['possible_keys'])) {
 						echo 'Possible keys: <b>' . $explain['possible_keys'] . '</b> &middot;';
 					}
@@ -254,7 +254,7 @@ class Profiler_Display {
 		// Start Footer
 		echo '<table id="profiler-footer" cellspacing="0">';
 		echo '<tr>';
-		echo '<td class="credit"><a href="http://github.com/steves/PHP-Profiler" target="_blank"><strong>PHP</strong>&nbsp;Profiler</a></td>';
+		echo '<td class="credit"><strong>PHP</strong>&nbsp;Profiler</td>';
 		echo '<td class="actions">';
 		echo '<a class="detailsToggle" href="#">Details</a>';
 		echo '<a class="heightToggle" href="#">Toggle Height</a>';
@@ -265,6 +265,7 @@ class Profiler_Display {
 	}
 
 	public static function displayCssJavascript() {
+		echo '<script>window.jQuery || document.write(\'<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"><\/script>\')</script>';
 		echo '<style type="text/css">' . file_get_contents(dirname(__FILE__) . '/resources/profiler.css') . '</style>';
 		echo '<script type="text/javascript">' . file_get_contents(dirname(__FILE__) . '/resources/profiler.js') . '</script>';
 	}
