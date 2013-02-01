@@ -4,6 +4,10 @@ Version 2
 by Steven Surowiec
 <steven.surowiec@gmail.com>
 
+converted to Composer
+
+by dubcanada
+
 ## Introduction ##
 PHP Profiler is a fork of PHP Quick Profiler by Ryan Campbell of [Particletree](http://particletree.com/)
 
@@ -12,7 +16,7 @@ Setup is very easy and straight-forward. There are five primary steps that need 
 
 1. Checkout the code into your libraries directory so that the classes can be auto loaded.
 2. Instantiate Profiler_Profiler
-3. At the end of your application after all else is done call the display() method on Profiler_Profiler. 
+3. At the end of your application after all else is done call the display() method on Profiler_Profiler.
 
 ## Setup and Usage ##
 Setting up PHP Profiler is quite simple. Below is a short code sample of the latest version.
@@ -37,6 +41,13 @@ Database queries can be logged as well:
     Profiler_Console::logQuery($sql);  // Starts timer for query
     $res = mysql_query($sql);
     Profiler_Console::logQuery($sql);  // Ends timer for query
+
+or manually
+
+    $start = microtime(true);
+    $res = mysql_query($sql);
+    $end = microtime(true);
+    Profiler_Console::logQueryManually($sql, null, $start, $end);
 
 Using a custom callback to explain queries for console
 
