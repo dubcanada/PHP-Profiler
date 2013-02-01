@@ -1,7 +1,11 @@
 {
     "name": "dubcanada/php-profiler",
     "autoload": {
-        "files": ["profiler/Profiler.php"]
+        "files": [
+            "profiler/Profiler.php",
+            "profiler/Console.php",
+            "profiler/Display.php"
+        ]
     },
     "description": "PHP Quick Profiler Fork",
     "authors": [
