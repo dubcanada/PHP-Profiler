@@ -3,7 +3,7 @@
  * Original URL: http://particletree.com/features/php-quick-profiler
  */
 
-.profiler { width: 100%; text-align: center; position: fixed; bottom: 0; }
+.profiler { width: 100%; text-align: center; position: fixed; left: 0; bottom: 0; }
 * html .profiler { position: absolute; }
 .profiler * { margin: 0; padding: 0; border: none; }
 #profiler { margin: 0 auto; width: 85%; min-width: 960px; background-color: #222; border: 12px solid #000; border-bottom: none; font-family:" Lucida Grande", Tahoma, Arial, sans-serif; -webkit-border-top-left-radius: 15px; -webkit-border-top-right-radius: 15px; -moz-border-radius-topleft: 15px; -moz-border-radius-topright: 15px; }
